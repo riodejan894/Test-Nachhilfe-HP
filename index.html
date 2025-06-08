@@ -12,20 +12,17 @@
       --text: #1a1a1a;
       --gray: #f5f5f5;
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Work Sans', sans-serif;
       background-color: var(--gray);
       color: var(--text);
       line-height: 1.6;
     }
-
     header {
       background: var(--primary);
       padding: 2rem;
@@ -33,17 +30,14 @@
       position: relative;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-
     header h1 {
       font-family: 'Outfit', sans-serif;
       font-size: 2.8rem;
       color: var(--text);
     }
-
     nav {
       margin-top: 1rem;
     }
-
     nav a {
       margin: 0 1rem;
       text-decoration: none;
@@ -51,65 +45,71 @@
       color: var(--text);
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: var(--accent);
     }
-
+    .section {
+      max-width: 960px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: var(--primary);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      display: none;
+    }
+    .active {
+      display: block;
+    }
     .hero {
       background-color: var(--primary);
       padding: 4rem 2rem;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
     .hero h2 {
       font-size: 2rem;
       font-family: 'Outfit', sans-serif;
       margin-bottom: 1rem;
     }
-
     .hero p {
       font-size: 1.1rem;
       color: #444;
       margin-bottom: 2rem;
     }
-
-    .hero-list {
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-
-    .hero-list ul {
+    .hero ul {
       list-style-type: none;
       padding-left: 0;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 2rem;
     }
-
-    .hero-list li::before {
+    .hero li::before {
       content: "✔";
       color: var(--accent);
-      font-weight: bold;
       margin-right: 0.5rem;
     }
-
-    .hero-list li {
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-    }
-
     .hero img {
       max-width: 300px;
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
-
+    .profile-image {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-image img {
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
     footer {
       background: var(--primary);
       text-align: center;
@@ -124,32 +124,66 @@
   <header>
     <h1>Dario – dein Online-Nachhilfelehrer in Rechnungswesen</h1>
     <nav>
-      <a href="#">Start</a>
-      <a href="#">Über mich</a>
-      <a href="#">Ablauf</a>
-      <a href="#">Kontakt</a>
+      <a onclick="showSection('hero')">Start</a>
+      <a onclick="showSection('about')">Über mich</a>
+      <a onclick="showSection('ablauf')">Ablauf</a>
+      <a onclick="showSection('kontakt')">Kontakt</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Online-Nachhilfe in Rechnungswesen & Wirtschaft</h2>
-      <p>Verständlich, individuell und bequem von zuhause – für Schüler:innen und Lernende.</p>
-      <div class="hero-list">
-        <ul>
-          <li>Individuelle 1:1 Betreuung – auf dich zugeschnitten</li>
-          <li>Praxisnahe Erklärungen & einfache Beispiele</li>
-          <li>Online via Microsoft Teams</li>
-          <li>Unterlagen per E-Mail nach jeder Lektion</li>
-          <li>Flexible Termine & schnelle Rückmeldung</li>
-        </ul>
-      </div>
+  <section id="hero" class="section active">
+    <h2>Online-Nachhilfe in Rechnungswesen & Wirtschaft</h2>
+    <p>Verständlich, individuell und bequem von zuhause – für Schüler:innen und Lernende.</p>
+    <ul>
+      <li>Individuelle 1:1 Betreuung – auf dich zugeschnitten</li>
+      <li>Praxisnahe Erklärungen & einfache Beispiele</li>
+      <li>Online via Microsoft Teams</li>
+      <li>Unterlagen per E-Mail nach jeder Lektion</li>
+      <li>Flexible Termine & schnelle Rückmeldung</li>
+    </ul>
+    <div class="hero-img">
+      <img src="verzweifelt.png" alt="Verzweifelter Schüler beim Lernen">
     </div>
-    <img src="verzweifelt.png" alt="Verzweifelter Schüler beim Lernen">
+  </section>
+
+  <section id="about" class="section">
+    <div class="profile-image">
+      <img src="Bewerbungsfoto_Zugeschnitten.JPG" alt="Profilfoto Dario">
+    </div>
+    <h2>Über mich</h2>
+    <p>Hey, mein Name ist Dario, ich bin 30 Jahre alt und arbeite in der Buchhaltung im Bereich Zahlungsverkehr. Nach meiner kaufmännischen Ausbildung als Kaufmann EFZ in Basel habe ich die Weiterbildungen zum Sachbearbeiter Rechnungswesen sowie den eidgenössischen Fachausweis in Finanz- und Rechnungswesen abgeschlossen.</p>
+    <p>Seit mittlerweile 7 Jahren gebe ich Nachhilfe in Rechnungswesen und Wirtschaft & Gesellschaft. Ich kenne die häufigsten Schwierigkeiten sehr genau und versuche die Themen immer so einfach und praxisnah wie möglich zu erklären – damit du sie schnell und spielerisch lernst!</p>
+  </section>
+
+  <section id="ablauf" class="section">
+    <h2>Ablauf der Nachhilfe</h2>
+    <p>Die Nachhilfe findet online über Microsoft Teams statt. Ich bereite mich individuell auf dein Thema vor und erstelle eine eigene Präsentation mit verständlichen Erklärungen und passenden Übungsaufgaben, die wir gemeinsam durchgehen. Am Ende der Lektion hast du das Thema verstanden und kannst es auch eigenständig anwenden.</p>
+    <p>Im Anschluss erhältst du die Präsentation per E-Mail, sodass du alles nochmals in Ruhe anschauen kannst. Und: Auch nach der Lektion stehe ich dir bei Fragen oder Unklarheiten zur Verfügung!</p>
+  </section>
+
+  <section id="kontakt" class="section">
+    <h2>Kontakt</h2>
+    <p>Am einfachsten erreichst du mich direkt über WhatsApp. Schreib mir gern, bei welchem Thema du Hilfe brauchst oder was dir schwerfällt.</p>
+    <a class="btn" href="https://wa.me/41765688894" target="_blank">Jetzt über WhatsApp schreiben</a>
+    <p style="margin-top:2rem;">Alternativ kannst du auch das Kontaktformular nutzen:</p>
+    <form>
+      <input type="text" placeholder="Dein Name" required>
+      <input type="email" placeholder="Deine E-Mail" required>
+      <textarea rows="5" placeholder="Deine Nachricht…" required></textarea>
+      <button class="btn" type="submit">Absenden</button>
+    </form>
   </section>
 
   <footer>
     &copy; 2025 Dario – Online-Nachhilfe in Rechnungswesen
   </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
