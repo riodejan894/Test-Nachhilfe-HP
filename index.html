@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dario – dein Online-Nachhilfelehrer in Rechnungswesen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #ffffff;
@@ -20,18 +20,35 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f0f0f0 25%, #fafafa 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      font-family: 'Work Sans', sans-serif;
+      background: #ffffff;
       color: var(--text);
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 20%, #e0f7fa, transparent 40%),
+                  radial-gradient(circle at 80% 80%, #ffe0b2, transparent 40%),
+                  radial-gradient(circle at 50% 50%, #e3f2fd, transparent 60%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      animation: floatBG 30s linear infinite;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    @keyframes floatBG {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-10%, -10%); }
+      100% { transform: translate(0, 0); }
     }
 
     header {
@@ -42,8 +59,8 @@
     }
 
     header h1 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 2.2rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
       color: #000;
       margin-bottom: 1rem;
     }
@@ -73,6 +90,7 @@
     }
 
     h2 {
+      font-family: 'Outfit', sans-serif;
       font-weight: 600;
       margin-bottom: 1rem;
     }
